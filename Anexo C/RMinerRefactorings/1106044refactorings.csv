@@ -1,0 +1,6 @@
+CommitId;RefactoringType;RefactoringDetail
+4ef35268bb96bb78b2dc698fa68e7ce763cde32e;Pull Up Attribute;Pull Up Attribute	private column : Integer from class org.broadleafcommerce.openadmin.dto.BasicFieldMetadata to class org.broadleafcommerce.openadmin.dto.FieldMetadata
+4ef35268bb96bb78b2dc698fa68e7ce763cde32e;Pull Up Attribute;Pull Up Attribute	private column : Integer from class org.broadleafcommerce.openadmin.dto.BasicFieldMetadata to class org.broadleafcommerce.openadmin.dto.FieldMetadata
+4ef35268bb96bb78b2dc698fa68e7ce763cde32e;Pull Up Attribute;Pull Up Attribute	private column : Integer from class org.broadleafcommerce.openadmin.dto.BasicFieldMetadata to class org.broadleafcommerce.openadmin.dto.FieldMetadata
+4ef35268bb96bb78b2dc698fa68e7ce763cde32e;Pull Up Method;Pull Up Method	public getColumn() : Integer from class org.broadleafcommerce.openadmin.dto.BasicFieldMetadata to public getColumn() : Integer from class org.broadleafcommerce.openadmin.dto.FieldMetadata
+4ef35268bb96bb78b2dc698fa68e7ce763cde32e;Pull Up Method;Pull Up Method	public setColumn(column Integer) : void from class org.broadleafcommerce.openadmin.dto.BasicFieldMetadata to public setColumn(column Integer) : void from class org.broadleafcommerce.openadmin.dto.FieldMetadata

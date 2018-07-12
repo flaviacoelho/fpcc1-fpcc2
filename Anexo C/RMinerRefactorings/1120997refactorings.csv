@@ -1,0 +1,3 @@
+CommitId;RefactoringType;RefactoringDetail
+1571049ec04b1e7e6f082ed5ec071584e7200c12;Move Class;Move Class	com.zaxxer.hikari.util.IBagStateListener moved to com.zaxxer.hikari.util.ConcurrentBag.IBagStateListener
+1571049ec04b1e7e6f082ed5ec071584e7200c12;Move Class;Move Class	com.zaxxer.hikari.util.IConcurrentBagEntry moved to com.zaxxer.hikari.util.ConcurrentBag.IConcurrentBagEntry

@@ -1,0 +1,3 @@
+CommitId;RefactoringType;RefactoringDetail
+7a2e0ae5f6172cbe34f9bc4a5cde666314ff75dd;Extract Method;Extract Method	package setSaltAndHash(user User, session Session, salt Expression, hash Expression) : void extracted from public update() : int in class org.lealone.command.ddl.CreateUser
+7a2e0ae5f6172cbe34f9bc4a5cde666314ff75dd;Extract Method;Extract Method	package setPassword(user User, session Session, password Expression) : void extracted from public update() : int in class org.lealone.command.ddl.CreateUser

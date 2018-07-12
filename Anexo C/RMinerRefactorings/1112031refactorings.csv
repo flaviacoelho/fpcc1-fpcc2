@@ -1,0 +1,4 @@
+CommitId;RefactoringType;RefactoringDetail
+718782014519034b28f6d3182fd9d340b7b31a74;Push Down Attribute;Push Down Attribute	protected connectionMap : Map<Channel,C> from class io.vertx.core.net.impl.VertxHandler to class io.vertx.core.http.impl.VertxHttpHandler
+718782014519034b28f6d3182fd9d340b7b31a74;Push Down Attribute;Push Down Attribute	protected connectionMap : Map<Channel,C> from class io.vertx.core.net.impl.VertxHandler to class io.vertx.core.http.impl.VertxHttpHandler
+718782014519034b28f6d3182fd9d340b7b31a74;Push Down Attribute;Push Down Attribute	protected connectionMap : Map<Channel,C> from class io.vertx.core.net.impl.VertxHandler to class io.vertx.core.http.impl.VertxHttpHandler

@@ -1,0 +1,4 @@
+CommitId;RefactoringType;RefactoringDetail
+2b2bb6c734d106cdd1c0f4691607be2fe11d7ebb;Move Attribute;Move Attribute	public UI_THREAD_HANDLER : Handler from class org.quantumbadger.redreader.common.General to class org.quantumbadger.redreader.common.AndroidApi
+2b2bb6c734d106cdd1c0f4691607be2fe11d7ebb;Move Attribute;Move Attribute	public UI_THREAD_HANDLER : Handler from class org.quantumbadger.redreader.common.General to class org.quantumbadger.redreader.common.AndroidApi
+2b2bb6c734d106cdd1c0f4691607be2fe11d7ebb;Move Attribute;Move Attribute	public UI_THREAD_HANDLER : Handler from class org.quantumbadger.redreader.common.General to class org.quantumbadger.redreader.common.AndroidApi

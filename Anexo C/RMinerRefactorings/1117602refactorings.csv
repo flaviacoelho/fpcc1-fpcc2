@@ -1,0 +1,3 @@
+CommitId;RefactoringType;RefactoringDetail
+40e41d11d7847d660bba6691859b0506514bd0ac;Move Class;Move Class	net.engio.mbassy.ConditionalHandlers.TestEvent moved to net.engio.mbassy.ConditionalHandlerTest.TestEvent
+40e41d11d7847d660bba6691859b0506514bd0ac;Move Class;Move Class	net.engio.mbassy.ConditionalHandlers.ConditionalMessageListener moved to net.engio.mbassy.ConditionalHandlerTest.ConditionalMessageListener

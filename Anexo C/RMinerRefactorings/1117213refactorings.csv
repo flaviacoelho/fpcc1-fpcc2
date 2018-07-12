@@ -1,0 +1,6 @@
+CommitId;RefactoringType;RefactoringDetail
+182f4d1174036417aad9d6db908ceaf64234fd5f;Rename Class;Rename Class	org.geoserver.importer.transform.AbstractVectorTransform renamed to org.geoserver.importer.transform.AbstractTransform
+182f4d1174036417aad9d6db908ceaf64234fd5f;Rename Class;Rename Class	org.geoserver.importer.transform.PreVectorTransform renamed to org.geoserver.importer.transform.PreTransform
+182f4d1174036417aad9d6db908ceaf64234fd5f;Rename Class;Rename Class	org.geoserver.importer.transform.PostVectorTransform renamed to org.geoserver.importer.transform.PostTransform
+182f4d1174036417aad9d6db908ceaf64234fd5f;Pull Up Method;Pull Up Method	public pre(item ImportTask, data ImportData) : void from class org.geoserver.importer.transform.VectorTransformChain to public pre(item ImportTask, data ImportData) : void from class org.geoserver.importer.transform.TransformChain
+182f4d1174036417aad9d6db908ceaf64234fd5f;Pull Up Method;Pull Up Method	public post(task ImportTask, data ImportData) : void from class org.geoserver.importer.transform.VectorTransformChain to public post(task ImportTask, data ImportData) : void from class org.geoserver.importer.transform.TransformChain
