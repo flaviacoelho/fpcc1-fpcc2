@@ -1,0 +1,3 @@
+CommitId;RefactoringType;RefactoringDetail
+44dea1f292933192ea5287d9b3e14a7daaef3c0f;Move Class;src/test/java/com.fasterxml.jackson.failing.TestExternalTypeId222.Issue222Bean;src/test/java/com.fasterxml.jackson.databind.jsontype.TestExternalId.Issue222Bean
+44dea1f292933192ea5287d9b3e14a7daaef3c0f;Move Class;src/test/java/com.fasterxml.jackson.failing.TestExternalTypeId222.Issue222BeanB;src/test/java/com.fasterxml.jackson.databind.jsontype.TestExternalId.Issue222BeanB

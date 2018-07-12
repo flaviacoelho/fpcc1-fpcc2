@@ -1,0 +1,4 @@
+CommitId;RefactoringType;RefactoringDetail
+3b1f4e56fea289860b31ef83ccfe96a3a003cc8b;Extract Method;src/main/java/org.adoptopenjdk.jitwatch.model.bytecode.BytecodeAnnotationBuilder#visitTag(Tag, IParseDictionary);src/main/java/org.adoptopenjdk.jitwatch.model.bytecode.BytecodeAnnotationBuilder#visitTagEliminateAllocation(Tag, IParseDictionary)
+3b1f4e56fea289860b31ef83ccfe96a3a003cc8b;Extract Method;src/main/java/org.adoptopenjdk.jitwatch.model.bytecode.BytecodeAnnotationBuilder#visitTag(Tag, IParseDictionary);src/main/java/org.adoptopenjdk.jitwatch.model.bytecode.BytecodeAnnotationBuilder#visitTagEliminateLock(Tag, IParseDictionary)
+3b1f4e56fea289860b31ef83ccfe96a3a003cc8b;Extract Method;src/main/java/org.adoptopenjdk.jitwatch.model.bytecode.BytecodeAnnotationBuilder#visitTag(Tag, IParseDictionary);src/main/java/org.adoptopenjdk.jitwatch.model.bytecode.BytecodeAnnotationBuilder#visitTagParse(Tag, IParseDictionary)

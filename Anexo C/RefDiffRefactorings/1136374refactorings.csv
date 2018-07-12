@@ -1,0 +1,5 @@
+CommitId;RefactoringType;RefactoringDetail
+5cdabae35f0642e9fe243afe12e4c16b3378a150;Move Class;encryption/src/main/java/com.novoda.Base64;encryption/src/main/java/com.novoda.demo.encryption.Base64
+5cdabae35f0642e9fe243afe12e4c16b3378a150;Move Class;encryption/src/main/java/com.novoda.Base64DecoderException;encryption/src/main/java/com.novoda.demo.encryption.Base64DecoderException
+5cdabae35f0642e9fe243afe12e4c16b3378a150;Move And Rename Class;encryption/src/main/java/com.novoda.Encrypt;encryption/src/main/java/com.novoda.demo.encryption.EncryptionActivity
+5cdabae35f0642e9fe243afe12e4c16b3378a150;Extract Method;encryption/src/main/java/com.novoda.Encrypt#onCreate(Bundle);encryption/src/main/java/com.novoda.demo.encryption.EncryptionActivity#updateTextViews()

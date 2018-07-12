@@ -1,0 +1,13 @@
+CommitId;RefactoringType;RefactoringDetail
+71820e573134be3fad3935035249cd77c4412f4e;Move Class;src/main/java/tconstruct.library.modifiers.RecipeMatch.Match;src/main/java/tconstruct.library.mantle.RecipeMatch.Match
+71820e573134be3fad3935035249cd77c4412f4e;Move And Rename Class;src/main/java/tconstruct.library.modifiers.RecipeMatch.Oredict;src/main/java/tconstruct.library.mantle.RecipeMatch.Item
+71820e573134be3fad3935035249cd77c4412f4e;Move And Rename Class;src/main/java/tconstruct.library.modifiers.RecipeMatch.Item;src/main/java/tconstruct.library.mantle.RecipeMatch.Oredict
+71820e573134be3fad3935035249cd77c4412f4e;Move Method;src/main/java/tconstruct.library.modifiers.RecipeMatch#removeMatch(ItemStack[], Match);src/main/java/tconstruct.library.mantle.RecipeMatch#removeMatch(ItemStack[], Match)
+71820e573134be3fad3935035249cd77c4412f4e;Move Method;src/main/java/tconstruct.library.modifiers.Modifier#addItem(String, int);src/main/java/tconstruct.library.mantle.RecipeMatchRegistry#addItem(String, int, int)
+71820e573134be3fad3935035249cd77c4412f4e;Move Method;src/main/java/tconstruct.library.modifiers.Modifier#addItem(Item, int);src/main/java/tconstruct.library.mantle.RecipeMatchRegistry#addItem(Item, int, int)
+71820e573134be3fad3935035249cd77c4412f4e;Extract Method;src/main/java/tconstruct.library.modifiers.Modifier#addItem(Block, int);src/main/java/tconstruct.library.mantle.RecipeMatchRegistry#addItem(Block, int)
+71820e573134be3fad3935035249cd77c4412f4e;Extract Method;src/main/java/tconstruct.library.modifiers.Modifier#addItem(String);src/main/java/tconstruct.library.mantle.RecipeMatchRegistry#addItem(String)
+71820e573134be3fad3935035249cd77c4412f4e;Extract Method;src/main/java/tconstruct.library.modifiers.Modifier#addItem(Item);src/main/java/tconstruct.library.mantle.RecipeMatchRegistry#addItem(String)
+71820e573134be3fad3935035249cd77c4412f4e;Extract Method;src/main/java/tconstruct.library.modifiers.Modifier#matches(ItemStack[]);src/main/java/tconstruct.library.mantle.RecipeMatchRegistry#matches(Collection)
+71820e573134be3fad3935035249cd77c4412f4e;Move Attribute;src/main/java/tconstruct.library.modifiers.RecipeMatch.Oredict#oredictEntry;src/main/java/tconstruct.library.mantle.RecipeMatch.Oredict#oredictEntry
+71820e573134be3fad3935035249cd77c4412f4e;Move Attribute;src/main/java/tconstruct.library.modifiers.RecipeMatch.Item#template;src/main/java/tconstruct.library.mantle.RecipeMatch.Item#template

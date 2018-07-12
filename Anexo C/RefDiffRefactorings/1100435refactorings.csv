@@ -1,0 +1,3 @@
+CommitId;RefactoringType;RefactoringDetail
+6cf596df183b3c3a38ed5dd9bb3b0100c6548ebb;Extract Method;examples/migrationExample/src/main/java/io.realm.examples.realmmigrationexample.MigrationExampleActivity#onCreate(Bundle);examples/migrationExample/src/main/java/io.realm.examples.realmmigrationexample.MigrationExampleActivity#showStatus(String)
+6cf596df183b3c3a38ed5dd9bb3b0100c6548ebb;Extract Method;examples/migrationExample/src/main/java/io.realm.examples.realmmigrationexample.MigrationExampleActivity#showStatus(Realm);examples/migrationExample/src/main/java/io.realm.examples.realmmigrationexample.MigrationExampleActivity#showStatus(String)

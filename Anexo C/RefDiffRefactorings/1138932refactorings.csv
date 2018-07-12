@@ -1,0 +1,2 @@
+CommitId;RefactoringType;RefactoringDetail
+2b2bb6c734d106cdd1c0f4691607be2fe11d7ebb;Move Attribute;src/main/java/org.quantumbadger.redreader.common.General#UI_THREAD_HANDLER;src/main/java/org.quantumbadger.redreader.common.AndroidApi#UI_THREAD_HANDLER

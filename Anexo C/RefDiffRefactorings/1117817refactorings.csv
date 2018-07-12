@@ -1,0 +1,5 @@
+CommitId;RefactoringType;RefactoringDetail
+da29a040ebae664274b28117b157044af0f525fa;Extract Method;src/main/java/com.fasterxml.jackson.databind.ObjectWriter#_configAndWriteValue(JsonGenerator, Object);src/main/java/com.fasterxml.jackson.databind.ObjectWriter.Prefetch#serialize(JsonGenerator, Object, DefaultSerializerProvider)
+da29a040ebae664274b28117b157044af0f525fa;Extract Method;src/main/java/com.fasterxml.jackson.databind.ObjectWriter#_writeCloseable(JsonGenerator, Object, SerializationConfig);src/main/java/com.fasterxml.jackson.databind.ObjectWriter.Prefetch#serialize(JsonGenerator, Object, DefaultSerializerProvider)
+da29a040ebae664274b28117b157044af0f525fa;Extract Method;src/main/java/com.fasterxml.jackson.databind.ObjectWriter#writeValue(JsonGenerator, Object);src/main/java/com.fasterxml.jackson.databind.ObjectWriter.Prefetch#serialize(JsonGenerator, Object, DefaultSerializerProvider)
+da29a040ebae664274b28117b157044af0f525fa;Inline Method;src/main/java/com.fasterxml.jackson.databind.ObjectWriter#_writeCloseableValue(JsonGenerator, Object, SerializationConfig);src/main/java/com.fasterxml.jackson.databind.ObjectWriter#writeValue(JsonGenerator, Object)

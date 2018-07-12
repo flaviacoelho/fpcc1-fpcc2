@@ -1,0 +1,6 @@
+CommitId;RefactoringType;RefactoringDetail
+182f4d1174036417aad9d6db908ceaf64234fd5f;Rename Class;src/extension/importer/core/src/main/java/org.geoserver.importer.transform.AbstractVectorTransform;src/extension/importer/core/src/main/java/org.geoserver.importer.transform.AbstractTransform
+182f4d1174036417aad9d6db908ceaf64234fd5f;Rename Class;src/extension/importer/core/src/main/java/org.geoserver.importer.transform.PostVectorTransform;src/extension/importer/core/src/main/java/org.geoserver.importer.transform.PreTransform
+182f4d1174036417aad9d6db908ceaf64234fd5f;Rename Class;src/extension/importer/core/src/main/java/org.geoserver.importer.transform.PreVectorTransform;src/extension/importer/core/src/main/java/org.geoserver.importer.transform.PostTransform
+182f4d1174036417aad9d6db908ceaf64234fd5f;Pull Up Method;src/extension/importer/core/src/main/java/org.geoserver.importer.transform.VectorTransformChain#error(VectorTransform, Exception);src/extension/importer/core/src/main/java/org.geoserver.importer.transform.TransformChain#error(ImportTransform, Exception)
+182f4d1174036417aad9d6db908ceaf64234fd5f;Pull Up Method;src/extension/importer/core/src/main/java/org.geoserver.importer.transform.VectorTransformChain#filter(List, Class);src/extension/importer/core/src/main/java/org.geoserver.importer.transform.TransformChain#filter(List, Class)

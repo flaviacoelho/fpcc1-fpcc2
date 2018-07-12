@@ -1,0 +1,8 @@
+CommitId;RefactoringType;RefactoringDetail
+200f1577d238a6d3fbcf99cb2a2585b2071214a6;Rename Method;core/src/test/java/com.google.common.truth.ListTest#listIsPartiallyOrderedWithComparatorFailure();core/src/test/java/com.google.common.truth.ListTest#listIsOrderedWithComparatorFailure()
+200f1577d238a6d3fbcf99cb2a2585b2071214a6;Rename Method;core/src/test/java/com.google.common.truth.ListTest#isPartiallyOrderedFailure();core/src/test/java/com.google.common.truth.ListTest#isOrderedFailure()
+200f1577d238a6d3fbcf99cb2a2585b2071214a6;Rename Method;core/src/test/java/com.google.common.truth.ListTest#isPartiallyOrderedWithNonComparableElementsFailure();core/src/test/java/com.google.common.truth.ListTest#isOrderedWithNonComparableElementsFailure()
+200f1577d238a6d3fbcf99cb2a2585b2071214a6;Rename Method;core/src/test/java/com.google.common.truth.ListTest#listIsPartiallyOrderedWithComparator();core/src/test/java/com.google.common.truth.ListTest#listIsOrderedWithComparator()
+200f1577d238a6d3fbcf99cb2a2585b2071214a6;Rename Method;core/src/test/java/com.google.common.truth.ListTest#listIsPartiallyOrdered();core/src/test/java/com.google.common.truth.ListTest#listIsOrdered()
+200f1577d238a6d3fbcf99cb2a2585b2071214a6;Extract Method;core/src/main/java/com.google.common.truth.IterableSubject#isPartiallyOrdered();core/src/main/java/com.google.common.truth.IterableSubject#isOrdered()
+200f1577d238a6d3fbcf99cb2a2585b2071214a6;Extract Method;core/src/main/java/com.google.common.truth.IterableSubject#isPartiallyOrdered(Comparator);core/src/main/java/com.google.common.truth.IterableSubject#isOrdered(Comparator)

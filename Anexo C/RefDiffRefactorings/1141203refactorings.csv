@@ -1,0 +1,2 @@
+CommitId;RefactoringType;RefactoringDetail
+02d3fa171d02c9d82c7bdcaeb739f47d0c0006a0;Inline Method;src/main/java/zmq.Signaler#makeFdPair();src/main/java/zmq.Signaler#()

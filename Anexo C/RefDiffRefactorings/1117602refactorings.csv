@@ -1,0 +1,7 @@
+CommitId;RefactoringType;RefactoringDetail
+40e41d11d7847d660bba6691859b0506514bd0ac;Rename Class;src/test/java/net.engio.mbassy.ConditionalHandlers;src/test/java/net.engio.mbassy.ConditionalHandlerTest
+40e41d11d7847d660bba6691859b0506514bd0ac;Extract Method;src/test/java/net.engio.mbassy.ConditionalHandlers#testSimpleStringCondition();src/test/java/net.engio.mbassy.ConditionalHandlerTest#SyncAsync()
+40e41d11d7847d660bba6691859b0506514bd0ac;Extract Method;src/test/java/net.engio.mbassy.ConditionalHandlers#testSimpleNumberCondition();src/test/java/net.engio.mbassy.ConditionalHandlerTest#SyncAsync()
+40e41d11d7847d660bba6691859b0506514bd0ac;Extract Method;src/test/java/net.engio.mbassy.ConditionalHandlers#testHandleCombinedEL();src/test/java/net.engio.mbassy.ConditionalHandlerTest#SyncAsync()
+40e41d11d7847d660bba6691859b0506514bd0ac;Extract Method;src/test/java/net.engio.mbassy.ConditionalHandlers#testNotMatchingAnyCondition();src/test/java/net.engio.mbassy.ConditionalHandlerTest#SyncAsync()
+40e41d11d7847d660bba6691859b0506514bd0ac;Extract Method;src/test/java/net.engio.mbassy.ConditionalHandlers#testHandleMethodAccessEL();src/test/java/net.engio.mbassy.ConditionalHandlerTest#SyncAsync()

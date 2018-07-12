@@ -1,0 +1,6 @@
+CommitId;RefactoringType;RefactoringDetail
+7a2e0ae5f6172cbe34f9bc4a5cde666314ff75dd;Rename Method;lealone-sql/src/main/java/org.lealone.command.ddl.CreateUser#getCharArray(Expression);lealone-sql/src/main/java/org.lealone.command.ddl.CreateUser#getByteArray(Session, Expression)
+7a2e0ae5f6172cbe34f9bc4a5cde666314ff75dd;Extract Method;lealone-sql/src/main/java/org.lealone.command.ddl.AlterUser#update();lealone-sql/src/main/java/org.lealone.command.ddl.CreateUser#setPassword(User, Session, Expression)
+7a2e0ae5f6172cbe34f9bc4a5cde666314ff75dd;Extract Method;lealone-sql/src/main/java/org.lealone.command.ddl.CreateUser#update();lealone-sql/src/main/java/org.lealone.command.ddl.CreateUser#setPassword(User, Session, Expression)
+7a2e0ae5f6172cbe34f9bc4a5cde666314ff75dd;Extract Method;lealone-sql/src/main/java/org.lealone.command.ddl.AlterUser#update();lealone-sql/src/main/java/org.lealone.command.ddl.CreateUser#setSaltAndHash(User, Session, Expression, Expression)
+7a2e0ae5f6172cbe34f9bc4a5cde666314ff75dd;Extract Method;lealone-sql/src/main/java/org.lealone.command.ddl.CreateUser#update();lealone-sql/src/main/java/org.lealone.command.ddl.CreateUser#setSaltAndHash(User, Session, Expression, Expression)

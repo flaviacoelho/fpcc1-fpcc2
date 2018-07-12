@@ -1,0 +1,2 @@
+CommitId;RefactoringType;RefactoringDetail
+a6601066ddc72ef8e71c46c5a51e1252ea0a1af5;Move Attribute;core/src/main/java/org.bitcoinj.core.Utils#digest;core/src/main/java/org.bitcoinj.core.Sha256Hash#digest

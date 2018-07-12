@@ -1,0 +1,2 @@
+CommitId;RefactoringType;RefactoringDetail
+20d39f7af2165c67d5221f556f58820c992d2cc6;Extract Method;spring-boot/src/main/java/org.springframework.boot.cloudfoundry.VcapApplicationListener#flatten(Properties, Map, String);spring-boot/src/main/java/org.springframework.boot.cloudfoundry.VcapApplicationListener#getFullKey(String, String)

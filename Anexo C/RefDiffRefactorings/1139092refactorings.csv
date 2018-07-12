@@ -1,0 +1,3 @@
+CommitId;RefactoringType;RefactoringDetail
+a7401e5091c06c68fae499ea1972b40143c66fa9;Rename Method;app/src/main/java/com.github.mobile.accounts.LoginActivity#endAccess(String, String);app/src/main/java/com.github.mobile.accounts.LoginActivity#endAuth(String, String)
+a7401e5091c06c68fae499ea1972b40143c66fa9;Extract Method;app/src/main/java/com.github.mobile.accounts.LoginActivity#onNewIntent(Intent);app/src/main/java/com.github.mobile.accounts.LoginActivity#onUserLoggedIn(Uri)

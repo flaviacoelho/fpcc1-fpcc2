@@ -1,0 +1,2 @@
+CommitId;RefactoringType;RefactoringDetail
+2801269c7e47bd6e243612654a74cee809d20959;Extract Method;connectors/ssh/src/main/java/org.crsh.auth.FilePublicKeyProvider#loadKeys();connectors/ssh/src/main/java/org.crsh.auth.FilePublicKeyProvider#convertPemKeyPair(PEMKeyPair)

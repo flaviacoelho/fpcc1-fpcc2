@@ -1,0 +1,4 @@
+CommitId;RefactoringType;RefactoringDetail
+4ef35268bb96bb78b2dc698fa68e7ce763cde32e;Pull Up Method;admin/broadleaf-open-admin-platform/src/main/java/org.broadleafcommerce.openadmin.dto.BasicFieldMetadata#getColumn();admin/broadleaf-open-admin-platform/src/main/java/org.broadleafcommerce.openadmin.dto.FieldMetadata#getColumn()
+4ef35268bb96bb78b2dc698fa68e7ce763cde32e;Pull Up Method;admin/broadleaf-open-admin-platform/src/main/java/org.broadleafcommerce.openadmin.dto.BasicFieldMetadata#setColumn(Integer);admin/broadleaf-open-admin-platform/src/main/java/org.broadleafcommerce.openadmin.dto.FieldMetadata#setColumn(Integer)
+4ef35268bb96bb78b2dc698fa68e7ce763cde32e;Pull Up Attribute;admin/broadleaf-open-admin-platform/src/main/java/org.broadleafcommerce.openadmin.dto.BasicFieldMetadata#column;admin/broadleaf-open-admin-platform/src/main/java/org.broadleafcommerce.openadmin.dto.FieldMetadata#column

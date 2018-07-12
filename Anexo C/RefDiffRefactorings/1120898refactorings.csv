@@ -1,0 +1,2 @@
+CommitId;RefactoringType;RefactoringDetail
+b36ab386559d04db114db8edd87c8d4cbf850c12;Extract Superclass;src/main/java/org.assertj.core.api.Assertions;src/main/java/org.assertj.core.api.StrictAssertions

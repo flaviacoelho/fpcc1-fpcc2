@@ -1,0 +1,7 @@
+CommitId;RefactoringType;RefactoringDetail
+19a49f8f36b2f6d82534dc13504d672e41a3a8d1;Pull Up Method;raft/src/main/java/net.kuujo.copycat.raft.state.ActiveState#applyCommits(long);raft/src/main/java/net.kuujo.copycat.raft.state.PassiveState#applyCommits(long)
+19a49f8f36b2f6d82534dc13504d672e41a3a8d1;Pull Up Method;raft/src/main/java/net.kuujo.copycat.raft.state.ActiveState#applyIndex(long);raft/src/main/java/net.kuujo.copycat.raft.state.PassiveState#applyIndex(long)
+19a49f8f36b2f6d82534dc13504d672e41a3a8d1;Pull Up Method;raft/src/main/java/net.kuujo.copycat.raft.state.ActiveState#doAppendEntries(AppendRequest);raft/src/main/java/net.kuujo.copycat.raft.state.PassiveState#doAppendEntries(AppendRequest)
+19a49f8f36b2f6d82534dc13504d672e41a3a8d1;Pull Up Method;raft/src/main/java/net.kuujo.copycat.raft.state.ActiveState#doCheckPreviousEntry(AppendRequest);raft/src/main/java/net.kuujo.copycat.raft.state.PassiveState#doCheckPreviousEntry(AppendRequest)
+19a49f8f36b2f6d82534dc13504d672e41a3a8d1;Pull Up Method;raft/src/main/java/net.kuujo.copycat.raft.state.ActiveState#handleAppend(AppendRequest);raft/src/main/java/net.kuujo.copycat.raft.state.PassiveState#handleAppend(AppendRequest)
+19a49f8f36b2f6d82534dc13504d672e41a3a8d1;Pull Up Attribute;raft/src/main/java/net.kuujo.copycat.raft.state.ActiveState#transition;raft/src/main/java/net.kuujo.copycat.raft.state.PassiveState#transition

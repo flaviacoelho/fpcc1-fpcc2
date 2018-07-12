@@ -1,0 +1,3 @@
+CommitId;RefactoringType;RefactoringDetail
+b47634176fa48ad925f79886c6aaca225cb9af64;Extract Method;spring-boot-actuator/src/main/java/org.springframework.boot.actuate.metrics.buffer.BufferMetricReader#findAll();spring-boot-actuator/src/main/java/org.springframework.boot.actuate.metrics.buffer.BufferMetricReader#findAll(Predicate)
+b47634176fa48ad925f79886c6aaca225cb9af64;Extract Method;spring-boot-actuator/src/main/java/org.springframework.boot.actuate.metrics.buffer.BufferMetricReader#findAll(String);spring-boot-actuator/src/main/java/org.springframework.boot.actuate.metrics.buffer.BufferMetricReader#findAll(Predicate)

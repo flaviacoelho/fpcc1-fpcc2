@@ -1,0 +1,5 @@
+CommitId;RefactoringType;RefactoringDetail
+69dd55c93fc99c5f7a1e2c21f10e671e311be49e;Move Class;hazelcast/src/test/java/com.hazelcast.client.protocol.Int2ObjectHashMapTest;hazelcast/src/test/java/com.hazelcast.util.collection.Int2ObjectHashMapTest
+69dd55c93fc99c5f7a1e2c21f10e671e311be49e;Move Class;hazelcast/src/main/java/com.hazelcast.client.impl.protocol.util.Int2ObjectHashMap;hazelcast/src/main/java/com.hazelcast.util.collection.Int2ObjectHashMap
+69dd55c93fc99c5f7a1e2c21f10e671e311be49e;Move Class;hazelcast/src/main/java/com.hazelcast.client.impl.protocol.util.Int2ObjectHashMap.Supplier;hazelcast/src/main/java/com.hazelcast.util.function.Supplier
+69dd55c93fc99c5f7a1e2c21f10e671e311be49e;Rename Method;hazelcast/src/main/java/com.hazelcast.client.impl.protocol.util.Int2ObjectHashMap#getOrDefault(int, Supplier);hazelcast/src/main/java/com.hazelcast.util.collection.Int2ObjectHashMap#computeIfAbsent(int, IntFunction)

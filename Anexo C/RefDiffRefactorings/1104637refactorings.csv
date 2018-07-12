@@ -1,0 +1,3 @@
+CommitId;RefactoringType;RefactoringDetail
+55ffa2f3353c5dc77fe6b790e5e045b76a07a772;Pull Up Method;moco-core/src/main/java/com.github.dreamhead.moco.internal.ActualHttpServer#onRequestAttached(RequestMatcher);moco-core/src/main/java/com.github.dreamhead.moco.internal.HttpConfiguration#onRequestAttached(RequestMatcher)
+55ffa2f3353c5dc77fe6b790e5e045b76a07a772;Pull Up Method;moco-core/src/main/java/com.github.dreamhead.moco.internal.ActualHttpServer#redirectTo(String);moco-core/src/main/java/com.github.dreamhead.moco.internal.HttpConfiguration#redirectTo(String)

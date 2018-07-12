@@ -1,0 +1,2 @@
+CommitId;RefactoringType;RefactoringDetail
+f01d8610b9ceebc1de59d42f569b8af3efbe0a0f;Extract Method;api/src/main/java/org.asynchttpclient.oauth.OAuthSignatureCalculator#calculateSignature(String, Uri, long, String, List, List);api/src/main/java/org.asynchttpclient.oauth.OAuthSignatureCalculator#signatureBaseString(String, Uri, long, String, List, List)

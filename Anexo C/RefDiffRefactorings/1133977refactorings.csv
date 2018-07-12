@@ -1,0 +1,4 @@
+CommitId;RefactoringType;RefactoringDetail
+0e815f3e1339f91960c7c64ab395de6dd8ff9eec;Move Class;java/src/main/java/cucumber.runtime.java.ObjectFactory;java/src/main/java/cucumber.api.java.ObjectFactory
+0e815f3e1339f91960c7c64ab395de6dd8ff9eec;Move Method;java/src/main/java/cucumber.runtime.java.JavaBackend#getMultipleObjectFactoryLogMessage();java/src/main/java/cucumber.runtime.java.ObjectFactoryLoader#getMultipleObjectFactoryLogMessage()
+0e815f3e1339f91960c7c64ab395de6dd8ff9eec;Move Method;java/src/main/java/cucumber.runtime.java.JavaBackend#loadObjectFactory(ClassFinder);java/src/main/java/cucumber.runtime.java.ObjectFactoryLoader#loadObjectFactory(ClassFinder, String)

@@ -1,0 +1,2 @@
+CommitId;RefactoringType;RefactoringDetail
+da6167af3bdbf7663af6c20fb603aba27dd5e174;Extract Method;ratpack-core/src/main/java/ratpack.server.internal.DefaultResponseTransmitter#post(HttpResponseStatus);ratpack-core/src/main/java/ratpack.server.internal.DefaultResponseTransmitter#post(HttpResponseStatus, ChannelFuture)

@@ -1,0 +1,2 @@
+CommitId;RefactoringType;RefactoringDetail
+718782014519034b28f6d3182fd9d340b7b31a74;Push Down Attribute;src/main/java/io.vertx.core.net.impl.VertxHandler#connectionMap;src/main/java/io.vertx.core.http.impl.VertxHttpHandler#connectionMap

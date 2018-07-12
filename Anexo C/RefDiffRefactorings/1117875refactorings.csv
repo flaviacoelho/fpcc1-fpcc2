@@ -1,0 +1,2 @@
+CommitId;RefactoringType;RefactoringDetail
+457a7f637ddb226acf477cae0b04c8ff16ec9a50;Extract Superclass;eureka-client/src/test/java/com.netflix.discovery.AbstractDiscoveryClientTester;eureka-client/src/test/java/com.netflix.discovery.BaseDiscoveryClientTester

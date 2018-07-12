@@ -1,0 +1,2 @@
+CommitId;RefactoringType;RefactoringDetail
+6c59050b8b03adf6d8043f3fb7add0496f447edf;Extract Method;structr-rest/src/main/java/org.structr.rest.resource.SchemaTypeResource#getPropertiesForView(Class, String, SchemaNode);structr-rest/src/main/java/org.structr.rest.resource.SchemaTypeResource#getSchemaProperties(SchemaNode)
