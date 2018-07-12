@@ -1,0 +1,21 @@
+tool,refactoringType,TP,FP,FN,precision,recall
+RefDiff,Extract Method,47,2,3,95.9,94
+RMiner,Extract Method,46,4,2,92,95.8
+RefDiff,Extract Superclass,2,0,0,100,100
+RMiner,Extract Superclass,2,0,0,100,100
+RefDiff,Move Class,45,0,0,100,100
+RMiner,Move Class,44,0,1,100,97.8
+RefDiff,Move Attribute,2,0,2,100,50
+RMiner,Move Attribute,4,8,0,33.3,100
+RefDiff,Pull Up Method,11,0,2,100,84.6
+RMiner,Pull Up Method,11,113,2,88.7,84.6
+RefDiff,Pull Up Attribute,2,0,0,100,100
+RMiner,Pull Up Attribute,2,26,0,71.4,100
+RefDiff,Push Down Attribute,1,0,0,100,100
+RMiner,Push Down Attribute,1,2,0,33.3,100
+RefDiff,Inline Method,5,0,0,100,100
+RMiner,Inline Method,5,0,0,100,100
+RefDiff,Rename Method,8,1,0,88.9,100
+RMiner,Rename Method,6,0,3,100,66.7
+RefDiff,Rename Class,3,0,2,100,60
+RMiner,Rename Class,3,0,2,100,60
