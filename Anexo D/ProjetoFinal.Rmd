@@ -1,0 +1,314 @@
+---
+title: "Fundamentos de Pesquisa em Ciência da Computação 2"
+subtitle: "Relatório - Análise Descritiva e Inferência Estatística"
+date: "28 de junho de 2018"
+output:
+  html_document:
+    df_print: paged
+---
+
+Este relatório compreende a análise descritiva e a inferência estatística para uma amostra de refatoramentos detectados pelas ferramentas *RMiner* e *RefDiff*, fazendo parte do Anexo D do relato de replicação do experimento efetuado por Tsantalis et at.
+
+
+### **1. Bibliotecas Utilizadas**
+```{r message = FALSE, warning = FALSE}
+library(tidyverse)
+library(here)
+library(dplyr)
+library(kableExtra)
+library(ggrepel) 
+library(boot) ##bootstraping e cálculo do intervalo de confiança
+library(resample) ##permutação e cálculo do p-valor
+library(coin)
+theme_set(theme_bw())
+```
+
+
+### **2. Importação dos Dados**
+```{r message = FALSE, warning = FALSE}
+datasetRefactorings <- read_csv(here::here("data/ToolsRefactorings.csv"))
+
+datasetExecutionTime <- read_csv(here::here("data/ToolsExecutionTime.csv"))
+
+glimpse(datasetRefactorings)
+
+glimpse(datasetExecutionTime)
+
+```
+
+A partir desses *datasets*, consideram-se 20 observações de refatoramentos detectados (*datasetRefactorings*) nas execuções das ferramentas *RMiner* e *RefDiff*, com base em 37 *commits* cada, cujos tempos de execução estão dispostos em *datasetExecutionTime*. 
+
+
+### **3. Análise Descritiva dos Dados**
+
+A tabela 1 exibe a distribuição dos tipos de refatoramento detectados a partir da amostra de 425 refatoramentos, provenientes de 37 *commits*.
+
+```{r results = 'markup'}
+
+valuesOfType = c("Move Attribute", "Pull Down Attribute", "Pull Up Attribute", " ", "Extract Method", "Inline Method", "Pull Up Method", "Rename Method", "Extract Superclass", "Move Class", "Rename Class", " ")
+matrixVariable <- matrix(valuesOfType, nrow = 4, ncol = 3) 
+colnames(matrixVariable) <- c(" ", " ", " ")
+kable(matrixVariable, caption = "Tabela 1 - Categorias de Refatoramentos Detectados") %>%
+  kable_styling(bootstrap_options = "striped", full_width = F) %>%
+  add_header_above(c("Atributo" = 1, "Método" = 1, "Tipo" = 1), line = FALSE)
+```
+
+
+As figuras 1 a 3 exibem a distribuição da quantidade de TP (verdadeiros positivos), FP (falsos positivos) e FN (falsos negativos) por tipo de refatoramento para o *RefDiff* e *RMiner*.
+
+
+```{r message = FALSE, warning = FALSE}
+
+theme_function <- function(){ 
+  theme(text = element_text(family = "Arial", size = 10), plot.title = element_text(size = 10), axis.title.x = element_text(size = 10), axis.title.y = element_text(size = 10))
+}
+
+datasetRefactoringsForPlot_function <- function(variable){
+  
+  datasetRefactoringsForPlot <- datasetRefactorings %>%
+    select(tool, refactoringType, as.character(variable))
+  
+  datasetRefactoringsForPlot <- setNames(datasetRefactoringsForPlot,  c("tool", "refactoringType", "variable"))
+  
+  datasetRefactoringsForMean <- datasetRefactoringsForPlot %>%
+    group_by(tool) %>%
+    summarize(meanVariable = mean(variable)) 
+  
+  glimpse(datasetRefactoringsForMean)
+  
+  return(datasetRefactoringsForPlot)
+}
+
+plot_tp_fp_fnByToolAndRefactoringType_function <- function(variable, plotTitle, ylabTitle){
+  
+  datasetRefactoringsForPlot <- datasetRefactoringsForPlot_function(variable)
+
+  datasetRefactoringsForPlot %>%
+    ggplot(aes(y = variable, x = refactoringType)) +
+    facet_grid(. ~tool) +
+    ggtitle(plotTitle) +
+    geom_bar(stat = "identity", fill = "white", color = "red") + 
+    geom_text(aes(label = paste(variable)), size = 2.5, position = position_dodge(width = 2), vjust = -0.2) +
+    ylab(ylabTitle) + 
+    xlab("Tipo de Refatoramento") +
+    theme_function() + 
+    theme(axis.text.x = element_text(angle = 70, hjust = 1))
+}
+
+plot_tp_fp_fnByToolAndRefactoringType_function("TP", "Figura 1 - Quantidade de Verdadeiros Positivos x Tipo de Refatoramento x Ferramenta", "Quantidade de verdadeiros positivos")
+
+plot_tp_fp_fnByToolAndRefactoringType_function("FP", "Figura 2 - Quantidade de Falsos Positivos x Tipo de Refatoramento x Ferramenta", "Quantidade de falsos positivos")
+
+plot_tp_fp_fnByToolAndRefactoringType_function("FN", "Figura 3 - Quantidade de Falsos Negativos x Tipo de Refatoramento x Ferramenta", "Quantidade de falsos negativos")
+
+```
+
+
+A partir da figura 1, observa-se que, para a amostra, a maioria dos refatoramentos aplicados é do tipo *Extract Method* e *Move Class*. Em média, a quantidade de verdadeiros positivos é 12.6 para o *RefDiff* e 12.4 para o *RMiner*, por tipo de refatoramento.
+
+A figura 2 exibe a distribuição de falsos positivos por tipo de refatoramento. É relevante notar a presença de valores extremos (*outliers*) na detecção dos refatoramentos *Pull Up Attribute* e *Pull Up Method*, pelo *RMiner*. Em média, a quantidade de falsos positivos para o *RefDiff* é 0.3 e 15.3 para o *RMiner*. É possível também observar que há um número maior de falsos positivos nas detecções efetuadas pelo *RMiner* em relação ao *RefDiff*.
+
+A distribuição de falsos negativos é apresentada na figura 3. Em média, 0.9 dos refatoramentos são falsos negativos para o *RefDiff* e 1.0 para o *RMiner*, com divergências em termos do tipo de refatoramento não-detectado.
+
+As figuras 4 a 5 exibem a distribuição da precisão e do *recall* por tipo de refatoramento para o *RefDiff* e *RMiner*.
+
+```{r message = FALSE, warning = FALSE}
+
+plot_precision_recall_ByToolAndRefactoringType_function <- function(variable, plotTitle, ylabTitle){
+  
+  datasetPrecisionAndRecallRefactoringsForPlot <- datasetRefactoringsForPlot_function(variable)
+  
+  datasetPrecisionAndRecallRefactoringsForPlot %>%
+    ggplot(aes(y = variable, x = refactoringType)) +
+    facet_grid(. ~tool) +
+    ggtitle(plotTitle) +
+    geom_bar(stat = "identity", fill = "white", color = "red") + 
+    geom_text(aes(label = paste(round(variable, digits = 2), "%")), size = 2, position = position_dodge(width = 2), vjust = -0.2) +
+    ylab(ylabTitle) + 
+    xlab("Tipo de Refatoramento") +
+    theme_function() + 
+    theme(axis.text.x = element_text(angle = 70, hjust = 1))
+ }
+
+plot_precision_recall_ByToolAndRefactoringType_function("precision", "Figura 4 - Precisão x Tipo de Refatoramento x Ferramenta de Detecção", "Precisão")
+
+plot_precision_recall_ByToolAndRefactoringType_function("recall", "Figura 5 - Recall x Tipo de Refatoramento x Ferramenta de Detecção", "Recall")
+
+```
+
+
+De acordo com a figura 4, a precisão das ferramentas *RefDiff* e *RMiner* variam de 88.9% a 100% e de 33.3% a 100%, respectivamente. Em média, a precisão do *RefDiff* (98.5%) é maior que a do *RMiner* (81.9%). 
+
+O oposto ocorre em relação ao *recall*, para o qual o *RMiner* (90.5%) é superior, em média, ao *RefDiff* (88.9%). Nestes termos, a figura 5 exibe a distribuição do *recall* para ambas as ferramentas que, por sua vez, varia de 50% a 100% para o *RefDiff* e de 60% a 100%, para o *RMiner*. 
+
+A figura 6 exibe a distribuição do tempo de execução dos 37 *commits* em função das ferramentas de detecção de refatoramento, utilizadas na repetição do experimento.
+
+```{r message = FALSE, warning = FALSE}
+
+plotExecutionTimeByTool_function <- function(variable, plotTitle){
+  
+  datasetExecutionTimeForPlot <- filter(datasetExecutionTime, Tool == as.character(variable))
+  
+  glimpse(datasetExecutionTimeForPlot)
+  
+  datasetExecutionTimeForPlot %>%
+    ggplot(aes(y = ExecutionTime, x = Tool)) +
+    geom_boxplot() +
+    scale_y_log10() + 
+    ggtitle(plotTitle) +
+    ylab("Tempo de execução (ms)") + 
+    xlab(" ") +
+    theme_function() + 
+    theme(axis.text.x = element_text(angle = 30, hjust = 1)) +  
+    geom_text_repel(data = data.frame(q = as.numeric(quantile(datasetExecutionTimeForPlot$ExecutionTime))), aes(x = rep(1.5,5), y = q, label = format(q, digits = 2)), size = 2.9, position = position_dodge(width = 1)) +  # add quantile values
+    geom_text(aes(x = 0.5, y = median(datasetExecutionTimeForPlot$ExecutionTime), label = format(quantile(datasetExecutionTimeForPlot$ExecutionTime)[4] - quantile(datasetExecutionTimeForPlot$ExecutionTime)[2], digits = 2), angle = 45), size = 2.9, position = position_dodge(width = 2), vjust = -0.2) + # add interquartile value
+    geom_linerange(aes(x = 0.4, ymin = quantile(datasetExecutionTimeForPlot$ExecutionTime)[2], ymax = quantile(datasetExecutionTimeForPlot$ExecutionTime)[4])) # add linerange for interquartile
+  
+}
+
+plotExecutionTimeByTool_function("RefDiff", "Figura 6 - Tempo de Execução do RefDiff")
+
+plotExecutionTimeByTool_function("RMiner", "Figura 7 - Tempo de Execução do RMiner")
+
+```
+
+Para a amostra considerada, de acordo com a figura 6, o tempo de execução do *RefDiff* varia de 227 a 9008 ms, com valor mediano de 1522 ms. Sendo assim, em até 50% das detecções, o tempo de execução é menor que 1522 ms e até 75%, é menor que 3080 ms. 
+
+Para o *RMiner*, a figura 7 exibe valores (0.0014 a 0.2071 ms) extremamente menores que os valores dos tempos de execução do *RefDiff*, para a mesma amostra de dados. Assim, 50% das detecções foram efetuadas em até 0.002 ms, enquanto 75% delas ocorreram em até 0,0022 ms. Portanto, é possível concluir que o *RMiner* é aproximadamente 760000 vezes mais rápido que o *RefDiff*, para a amostra.
+
+A mediana é a estatística de medida central mais adequada para o contexto e será utilizada na inferência estatística para o tempo de execução, pois não é influenciada por valores extremos.
+
+
+### **4. Inferência Estatística Aplicada à Detecção de Refatoramentos**
+
+A partir do *dataset* *datasetRefactorings*, é extraída uma amostra de 5 observações para cada ferramenta de detecção e o processo de *bootstraping* é iniciado. As figuras 8 a 11 exibem a distribuição da média da precisão e *recall* para o *RefDiff* e *RMiner*. Em seguida, calcula-se o intervalo de confiança.
+
+```{r}
+
+##datasets de refatoramentos para cada ferramenta de detecção
+
+datasetRefactoringsRefDiff <- filter(datasetRefactorings, tool == "RefDiff")
+glimpse(datasetRefactoringsRefDiff)
+
+datasetRefactoringsRMiner <- filter(datasetRefactorings, tool == "RMiner")
+glimpse(datasetRefactoringsRMiner)
+
+
+##iniciando o processo de bootstraping
+set.seed(123)    ## semente para a aleatoriedade de amostras
+
+experimentRefDiff = sample_n(datasetRefactoringsRefDiff, 5, replace = TRUE)   ##obtém amostra de tamanho 5
+glimpse(experimentRefDiff)                                                    
+
+experimentRMiner = sample_n(datasetRefactoringsRMiner, 5, replace = TRUE)
+glimpse(experimentRMiner)               
+
+
+bootstrap_function <- function(data, index, variablePrecisionOrRecall){
+  meanPrecisionOrRecallByTool = data %>%
+      slice(index) %>%       ##reamostragem
+      pull(variablePrecisionOrRecall) %>%  ##variável de interesse
+      mean()        ##média da precisao ou recall
+    
+    return(meanPrecisionOrRecallByTool)
+}
+
+plot_precision_and_recall_function <- function(bootstrapsVar, plotTitle, xlabTitle){
+
+  tibble(estatistica = as.double(bootstrapsVar$t)) %>%
+    ggplot(aes(x = estatistica)) +
+    geom_histogram(fill = "white", color = "red", bins = 10) +
+    ggtitle(plotTitle) +
+    ylab(" ") +
+    xlab(xlabTitle) +
+    theme_function() + 
+    geom_vline(aes(xintercept = mean(estatistica)), color="blue", linetype = "dashed")
+}
+
+doBootstraping_function <- function(experiment, variablePrecisionOrRecall, plotTitle, xlabTitle){
+  
+  bootstraps <- boot(experiment, bootstrap_function, R = 2000, variablePrecisionOrRecall = variablePrecisionOrRecall)
+  print(plot_precision_and_recall_function(bootstraps, plotTitle, xlabTitle))
+  print(boot.ci(bootstraps, conf = 0.95, type = "perc"))
+}
+
+```
+
+```{r}
+doBootstraping_function(experimentRefDiff, "precision", "Figura 8 - Distribuição Amostral da Média da Precisão para o RefDiff", "Média da precisão")
+```
+
+Afirma-se com 95% de confiança que a média geral da precisão para o *RefDiff* está entre 93.34 a 100%.
+
+```{r}
+doBootstraping_function(experimentRefDiff, "recall", "Figura 9 - Distribuição Amostral da Média do Recall para o RefDiff", "Média do recall")
+```
+
+Com 95% de confiança, conclui-se que a média geral do *recall* para o *RefDiff* está entre 72.92 a 100%.
+
+```{r}
+doBootstraping_function(experimentRMiner, "precision", "Figura 10 - Distribuição Amostral da Média da Precisão para o RMiner", "Média da precisão")
+```
+
+A média geral da precisão do *RMiner*, com 95% de confiança, está entre 74.86 a 94.54%.
+
+
+```{r}
+doBootstraping_function(experimentRMiner, "recall", "Figura 11 - Distribuição Amostral da Média do Recall para o RMiner", "Média do recall")
+```
+
+Conclui-se com 95% de confiança que a média geral do *recall* para o *RMiner* está entre 76.28 a 99.16%.
+
+
+### **5. Inferência Estatística baseada em Teste de Hipótese Aplicada ao Tempo de Detecção de Refatoramentos**
+
+Os seguintes passos são propostos para a realização do teste de hipótese para o tempo de execução do *RefDiff* e *RMiner* durante a detecção de refatoramentos em 37 *commits*:
+
+* Estabelecimento das hipóteses nula (H<sub>0</sub>) e alternativa (H<sub>a</sub>);
+* Determinação do nível de significância do teste (&alpha;);
+* Cálculo da estatística de teste a partir das observações; 
+* Cálculo do p-valor e teste de Wilcoxon.
+
+#### **Estabelencendo as hipóteses nula e alternativa **
+
+* H<sub>0</sub>: O tipo de ferramenta de detecção não influencia o tempo de execução;
+* H<sub>a</sub>: O tipo de ferramenta de detecção influencia o tempo de execução.
+
+
+#### **Determinando o nível de significância do teste**
+
+Considera-se um nível de confiança (&gamma;) de 0,95, isto é, 95% de probabilidade de não rejeitar a hipótese nula, quando ela é verdadeira. Sendo assim, o nível de significância é 0,05 (&gamma; = 1 - &alpha;), o que representa a probabilidade de 5% de rejeitar a hipótese nula quando esta for verdadeira.
+
+
+#### **Calculando a estatística de teste**
+
+A **mediana** do tempo de execução é a estatística considerada para fins de inferência estatística. 
+
+```{r message = FALSE, warning = FALSE}
+
+executionTimeByTool = datasetExecutionTime %>%
+  group_by(Tool) %>%    
+  summarize(medianExecutionTime = median(ExecutionTime))   
+
+glimpse(executionTimeByTool)
+
+```
+##### **Calculando o p-valor e efetuando o teste de Wilcoxon**
+
+```{r message = FALSE, warning = FALSE}
+
+##efetuando o cálculo do p-valor
+permutationTest2(datasetExecutionTime, median(ExecutionTime), treatment = Tool)
+
+permutationTest2(datasetExecutionTime, mean(ExecutionTime), treatment = Tool)
+
+
+wilcox_test(ExecutionTime ~ as.factor(Tool), 
+            data = datasetExecutionTime, 
+            distribution = "exact", paired = TRUE)
+```
+
+O p-valor calculado é aproximadamente 0.0002, para a mediana (obtém-se o mesmo resultado para a média, exibida aqui apenas para fins de comparação entre as estatísticas).
+
+A partir do resultado do teste de Wilcoxon, é possível afirmar com 95% que a hipótese nula pode ser rejeitada, com p-valor igual a 2.2 * 10^-16^.
+
